@@ -1,33 +1,48 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import Textfield from './components/Textfield'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  // inputs  
+  const [formData, setFormData] = useState({
+    url: ""
+  })
+
+  // handle inputs
+  const handleInputsChange = e =>{
+    const {name, value, type, files} = e.target    
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  // qr code
+  const handleGenerateQrCode = (e) => {
+    e.preventDefault()
+
+  }
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+        <form action="">
+
+          <Textfield 
+            name="url" 
+            placeholder="https://example.com"
+            label="Enter your website url:"
+            value={formData.url}
+            onChange={handleInputsChange} 
+            />
+          
+          <button onClick={handleGenerateQrCode}>Generate QR Code</button>
+
+        </form>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      
     </>
   )
 }
