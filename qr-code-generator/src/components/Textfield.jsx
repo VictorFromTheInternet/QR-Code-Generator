@@ -9,14 +9,14 @@ function Textfield({name, label, value, placeholder, onChange}) {
 
     return (
         <div>
-        <label htmlFor={name}>{label}</label>            
-        <input type="text" className="textfield"
-                    name={name}
-                    id={name}
-                    value={value}
-                    onChange={onChange}
-                    placeholder={placeholder}                    
-                    />
+          <label htmlFor={name}>{label}</label>            
+          <input type="text" className="textfield"
+                      name={name}
+                      id={name}
+                      value={value}
+                      onChange={onChange}
+                      placeholder={placeholder}                    
+                      />
         </div>
     )
 }

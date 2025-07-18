@@ -5,7 +5,7 @@ import './App.css'
 function App() {
 
   // inputs  
-  const [qrCodeUrl, setQrCodeUrl] = useState("")  
+  const [qrCodeUrl, setQrCodeUrl] = useState(null)  
   const [formData, setFormData] = useState({
     url: ""
   })
@@ -44,26 +44,29 @@ function App() {
 
   return (
     <>
-      <div className="card">
-        <form action="">
+      <div className="main-container">
+        <div className="card">
+          <h1 className="title">QR Code Generator</h1>
+          <form >
 
-          <Textfield 
-            name="url" 
-            placeholder="https://example.com"
-            label="Enter your website url:"
-            value={formData.url}
-            onChange={handleInputsChange} 
-            />
+            <Textfield 
+              name="url" 
+              placeholder="https://example.com"
+              label="Enter your website url:"
+              value={formData.url}
+              onChange={handleInputsChange} 
+              />
+            
+            <button onClick={handleGenerateQrCode} className="btn btn-outline">Generate QR Code</button>          
+
+          </form>
           
-          <button onClick={handleGenerateQrCode}>Generate QR Code</button>          
-
-        </form>
-
-        <div className="qrCodeContainer">
-            <img src={qrCodeUrl} alt="" height="220" width="220"/>
+          <div className={`qrCodeContainer ${qrCodeUrl === null ? "" : "qrCodeContainer-show"}`}>
+              <img src={qrCodeUrl} alt="" height="220" width="220"/>
+              <a href={qrCodeUrl} download="qr-code.png" className="btn btn-download">Download as PNG</a>          
+          </div>                    
         </div>
-        <a href={qrCodeUrl} download="qr-code.png" >Download the url</a>
-      </div>
+      </div>      
       
     </>
   )
