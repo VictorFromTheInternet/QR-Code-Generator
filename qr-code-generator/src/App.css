@@ -5,8 +5,7 @@
 }
 
 /* card styling */
-.card{ 
-  margin: auto auto;
+.card{   
   background-color: white;
   border-width: 0px;
   border-radius: 8px;
@@ -74,6 +73,25 @@ input, textarea{
   max-height: none;
 }
 
+
+.credit{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+  color: white;
+  padding: 0.5rem 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.credit a{
+  color: white;
+}
 
 
 /* media queries */

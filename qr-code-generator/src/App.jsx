@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Textfield from './components/Textfield'
+import Credits from './components/Credits'
 import './App.css'
 
 function App() {
@@ -44,6 +45,7 @@ function App() {
 
   return (
     <>
+    
       <div className="main-container">
         <div className="card">
           <h1 className="title">QR Code Generator</h1>
@@ -66,8 +68,11 @@ function App() {
               <a href={qrCodeUrl} download="qr-code.png" className="btn btn-download">Download as PNG</a>          
           </div>                    
         </div>
+        
+
       </div>      
-      
+
+      <Credits/>
     </>
   )
 }
