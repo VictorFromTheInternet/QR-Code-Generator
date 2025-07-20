@@ -27,7 +27,9 @@ function App() {
     const queryParameters = new URLSearchParams({
       data: formData.url,
       size: "220x220",
-      margin: "0"
+      margin: "10",
+      bgcolor: "64-94-97-0",
+      color: "0-0-0"
     }).toString()
 
     const requestUrl = `${baseUrl}?${queryParameters}`
